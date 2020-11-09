@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { paginationService } from "./pagination.service";
 import axiosInstance from "../http/httpInstance";
 
@@ -32,7 +32,7 @@ export const Pagination = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [pager, setPager] = useState({} as any);
   const [totalRecordsPage, setTotalRecordsPage] = useState(0);
-  let innerCurrentPage: number = 1;
+  const currentPageRef = useRef(1)
 
   /*
    * Fetch data from API
@@ -98,7 +98,7 @@ export const Pagination = ({
    * Watch current page
    */
   useEffect(() => {
-    innerCurrentPage = currentPage;
+    currentPageRef.current = currentPage;
   }, [currentPage]);
 
   /*
@@ -141,7 +141,7 @@ export const Pagination = ({
                   className="page-link"
                   onClick={(e) => {
                     e.preventDefault();
-                    getData(innerCurrentPage);
+                    getData(currentPageRef.current - 1);
                   }}
                 >
                   Previous
@@ -183,7 +183,7 @@ export const Pagination = ({
                   href="#!"
                   onClick={(e) => {
                     e.preventDefault();
-                    getData(innerCurrentPage + 1);
+                    getData(currentPageRef.current + 1);
                   }}
                 >
                   Next
