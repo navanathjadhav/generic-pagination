@@ -30,7 +30,7 @@ app.use(
 app.use(express.json());
 
 /*
- * Demo students data
+ * Mock students data
  */
 const students = [
   { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },

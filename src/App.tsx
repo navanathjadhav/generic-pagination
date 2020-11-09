@@ -17,7 +17,7 @@ function App() {
   const [students, setStudents] = useState([] as any);
   const [recordsPerPage, setRecordsPerPage] = useState(5);
   const [isLoadingStudents, setLoadingStudents] = useState(false);
-  const [isSearchingStudents, setSearchingCustomers] = useState(false);
+  const [isSearchingStudents, setSearchingStudents] = useState(false);
   const [reload, setReload] = useState(false);
   const [search, setSearch] = useState({} as any);
   const { register, handleSubmit, errors } = useForm();
@@ -50,8 +50,8 @@ function App() {
                   <InputGroup>
                     <FormControl
                       className="c-f h-45"
-                      placeholder="Search customers"
-                      aria-label="Search customers"
+                      placeholder="Search students"
+                      aria-label="Search students"
                       aria-describedby="basic-addon2"
                       name="term"
                       onChange={clearSearchResults}
@@ -111,9 +111,9 @@ function App() {
               <Table striped hover>
                 <thead>
                   <tr>
-                    <th className="w-40 bt-none">Name</th>
-                    <th className="w-40 bt-none">Email</th>
-                    <th className="w-20 bt-none">Department</th>
+                    <th className="bt-none">Name</th>
+                    <th className="bt-none">Email</th>
+                    <th className="bt-none">Department</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -148,7 +148,7 @@ function App() {
                 isLoadingData={setLoadingStudents}
                 reloadApi={reload}
                 search={search}
-                isSearchingData={setSearchingCustomers}
+                isSearchingData={setSearchingStudents}
               />
             </Card.Body>
           </Card>
