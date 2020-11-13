@@ -76,17 +76,6 @@ const students = [
     department: "Information Technology",
   },
   { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
 ];
 
 /*
@@ -94,13 +83,16 @@ const students = [
  */
 app.get("/api/students", (req, res) => {
   let studentInternal = students;
-  // Calculate start
+
+  // Calculate start, Aka skip if you use it in db queries
   const start =
     parseInt(req.query.recordsPerPage) * (parseInt(req.query.pageNumber) - 1);
-  // Calculate end
+
+  // Calculate end, Aka limit if you use it in db queries
   const end = start + parseInt(req.query.recordsPerPage);
 
   // Match if searchTerm is received from client
+  // Use your DB query here
   if (req.query.searchTerm) {
     studentInternal = students.filter((student) => {
       return (
@@ -111,11 +103,14 @@ app.get("/api/students", (req, res) => {
     });
   }
 
-  // Send response: { count, data }
-  res.status(200).json({
-    count: studentInternal.length,
-    data: studentInternal.slice(start, end),
-  });
+  // Artificial delay for showing loader in client
+  setTimeout(() => {
+    // Send response: { count, data }
+    res.status(200).json({
+      count: studentInternal.length,
+      data: studentInternal.slice(start, end),
+    });
+  }, 1000);
 });
 
 const server = http.createServer(app);

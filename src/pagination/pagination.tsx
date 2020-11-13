@@ -6,12 +6,25 @@ import axiosInstance from "../http/httpInstance";
  * Type definitions
  */
 interface Props {
+  // Url route of API, example: /api/students
   apiRoute: string;
+
+  // Records per page to be shown & loaded
   recordsPerPage: number;
+
+  // Response from API
   responseData: any;
+
+  // Is data being load from API, to show loader in parent component
   isLoadingData: any;
+
+  // Reload the API, will be triggered from parent
   reloadApi: boolean;
+
+  // Search term from parent component
   search?: any;
+
+  // Is searching data when search is triggered
   isSearchingData: any;
 }
 
@@ -32,7 +45,7 @@ export const Pagination = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [pager, setPager] = useState({} as any);
   const [totalRecordsPage, setTotalRecordsPage] = useState(0);
-  const currentPageRef = useRef(1)
+  const currentPageRef = useRef(1);
 
   /*
    * Fetch data from API

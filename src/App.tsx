@@ -25,7 +25,7 @@ function App() {
   /*
    * Clear search results
    * Make search object empty if no value
-   * Trigger reload event in pagination
+   * Trigger reload in pagination
    */
   const clearSearchResults = (event: any) => {
     if (!event.target.value && search) {
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="container-fluid">
-      <div className="d-flex justify-content-between align-items-center my-4">
+      <div className="d-flex justify-content-between align-items-center mt-4">
         <div className="flex-grow-1 filter-container-c">
           <div className="search">
             <Form onSubmit={handleSubmit(setSearch)}>
@@ -106,6 +106,7 @@ function App() {
       </div>
       <Row>
         <Col md={12} lg={12}>
+          <h3>Students</h3>
           <Card>
             <Card.Body className="pt-0">
               <Table striped hover>
