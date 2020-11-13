@@ -1,5 +1,7 @@
 # Server side Pagination with search
 
+This project includes fully customizable server-side pagination component along with search feature without using any third party pagination library.
+
 ## Stack
 - react
 - typescript
