@@ -3,6 +3,7 @@
 ## Stack
 - react
 - typescript
+- Nodejs
 - react-bootstrap
 - react-hook-form
 - axios
