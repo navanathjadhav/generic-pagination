@@ -5,7 +5,7 @@ This project includes fully customizable server-side pagination component along 
 ## Stack
 - react
 - typescript
-- Nodejs
+- nodejs
 - react-bootstrap
 - react-hook-form
 - axios
