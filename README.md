@@ -11,6 +11,9 @@ This project includes fully customizable server-side pagination component along 
 - axios
 - node-sass
 
+## Give a Star ⭐
+If you liked this project or found it helpful then please give it a star. It will keep motivating me do more work like this! Thanks.
+
 ## Available Scripts
 
 In the project directory, you can run:
